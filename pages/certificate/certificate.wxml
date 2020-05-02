@@ -1,0 +1,21 @@
+<view class="page">
+<view class="list_certificate">
+
+<view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">岗位名称</view>
+                    <view class="weui-media-box__desc">请选择岗位要求的职业资格证书（可多选）</view>
+                </view>
+                <view wx:for="{{certificates}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+    <button class="weui-btn"  data-text="{{item}}" id="{{index}}" type="{{item.type}}" bindtap="chooseCertificate" >{{item.name}}</button>
+                
+                <!-- <button class="weui-btn" value="health" type="default" bindtap="health">健康证</button>
+                <button class="weui-btn" type="default">中式烹调师(初级)</button>
+                <button class="weui-btn" type="default">中式烹调师(高级)</button>
+                <button class="weui-btn" type="default">西式烹调师(初级)</button>
+                <button class="weui-btn" type="default">西式烹调师(高级)</button>
+                <button class="weui-btn" type="default">中式面点师(初级)</button>
+                <button class="weui-btn" type="default">中式面点师(高级)</button> -->
+                </view>
+</view>
+                <view class="save" bindtap="savaCertificate">保存</view>
+</view>

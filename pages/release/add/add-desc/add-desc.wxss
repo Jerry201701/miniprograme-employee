@@ -1,0 +1,16 @@
+/* pages/release/add/add-desc/add-desc.wxss */
+.content{
+  min-height: 500rpx;
+}
+.weui-cells::before{
+  border: 0;
+}
+.weui-cells::after{
+  border: 0;
+}
+.desc-btn{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+}

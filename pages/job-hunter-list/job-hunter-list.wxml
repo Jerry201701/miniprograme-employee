@@ -1,0 +1,89 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="nav">
+      <view class="nav-son" data-nav="1" data-num="" bindtap='bindShowMsg'>
+        <view class="content">{{tihuoWay}}</view>
+        <view class="icon"></view>
+      </view>
+    </view>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+      <view class="select_one" bindtap="mySelect" data-name="全部">全部</view>
+      <view class="select_one" bindtap="mySelect" data-name="发布中">发布中</view>
+      <view class="select_one" bindtap="mySelect" data-name="审核中">审核中</view>
+      <view class="select_one" bindtap="mySelect" data-name="已招聘">已招聘</view>
+    </view>
+
+
+ <checkbox-group bindchange="checkboxChange">
+  <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_example ">
+        <view class="weui-cell__hd">
+          <image src="/images/emp.jpg" class="portrait" style="margin-right: 5rpx;vertical-align: middle;width:100rpx; height: 100rpx;"></image>
+        </view>
+        <view class="weui-cell__bd delivery_list">
+          <view class="brief">
+            <view class="brief-item">张三</view>
+            <view class="brief-item">5年</view>
+            <view class="brief-item">高中</view>
+          </view>
+          <view class="brief">
+            <view class="brief-item">健康证</view>
+            <view class="brief-item">面点证</view>
+            <view class="brief-item">中餐证</view>
+            <view class="brief-item">西餐证</view>
+          </view>
+          <view class="last-post">现在公司 中餐厨师</view>
+        </view>
+        <view class="weui-cell__bd delivery-status">
+          <view>10月20日 14:39</view>
+          <view>
+           <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                  <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                  <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+              </view>
+          </view>
+        </view>
+
+      </view>
+      <view class="weui-cell weui-cell_example ">自我描述</view>
+    </view>
+     </label>
+ </checkbox-group>
+
+
+
+
+
+
+    <!-- 
+    <view class="weui-cells weui-cells_after-title "  wx:for="{{jobInfos}}" wx:key="key">
+      <navigator url="../../job-details/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd positions">
+          <view class="position">
+            <view class="post_title">
+              <view>{{item.jobName}}</view>
+              <view class="post_salary">{{item.salaryRange}}</view>
+            </view>
+            <view class="conditions">
+              <view class="condition">{{item.city}}</view>
+              <view class="condition">{{item.district}}</view>
+              <view class="condition">{{item.educationLevel}}</view>
+              <view class="condition">{{item.workExperience}}</view>
+            </view>
+          </view>
+          <view>
+            <view class="positon_status">发布中</view>
+          </view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+
+    </view>
+    <button type="primary" bindtap="addPosition">发布新岗位</button> -->
+
+
+  </view>
+</view>

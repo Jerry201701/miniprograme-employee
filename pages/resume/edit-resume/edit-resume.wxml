@@ -1,0 +1,152 @@
+<view class="aspiration" style="margin-top:64px;">
+<view class="basic-title">请填写基本信息</view>
+   
+     <view class="weui-cells weui-cells_after-title">
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">姓名</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请填写姓名" value="{{applicantName}}" data-event="input" bindinput="nameInput" />
+          </view>
+      </view>
+
+      
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">年龄</view>
+          </view> 
+          <view class="weui-cell__bd">
+           <!-- <picker bindchange="bindPickerChange" value="{{ageIndex}}" range="{{ageRange}}">
+                <button class="weui-btn" type="default">单列选择器</button>
+            </picker> -->
+              <picker  value="{{index}}" range="{{ageRange}}" bindchange="bindAgeChange">
+                  <view class="sex picker-inner">
+                    <text class="sex-val">{{age}}</text>
+                    <text class="arrow-right"></text>
+                  </view> 
+              </picker>
+          </view>
+      </view>
+
+
+      
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">电话</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请填写电话号码" value="{{telephone}}" data-event="input" bindinput="telephoneInput" />
+          </view>
+      </view>
+
+
+      
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">邮箱</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请填写邮箱" value="{{email}}" data-event="input" bindinput="emailInput" />
+          </view>
+      </view>
+
+
+       <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">期望岗位</view>
+          </view> 
+          <view class="weui-cell__bd">
+           <input class="weui-input post-content" placeholder="请填写期望岗位"  disabled="true" bindtap="addExpectPosition" value="{{expectPosition}}" />
+          </view>
+      </view>
+
+
+
+         <!-- <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">期望岗位</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请填写期望岗位" value="{{expectPosition}}" data-event="input" bindinput="operateInput" />
+          </view>
+      </view> -->
+
+       <!--期望薪资-->
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">期望薪资</view>
+          </view> 
+          <view class="weui-cell__bd">
+<picker mode="multiSelector" bindchange="bindMultiPickerChange"bindcolumnchange="bindMultiPickerColumnChange" 
+value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+    {{minExpectSalary}}-{{maxExpectSalary}}
+    </view>
+  </picker>
+
+  
+       
+          </view>
+      </view>
+
+
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">工作年限</view>
+          </view> 
+          <view class="weui-cell__bd">
+
+        <picker  value="{{workIndex}}" range="{{workRange}}"  bindchange="bindWorkChange">
+                  <view class="sex picker-inner">
+                    <text class="sex-val">{{workYears}}</text>
+                    <text class="arrow-right"></text>
+                  </view> 
+              </picker>
+          </view>
+      </view>
+
+       <!--公司logo上传-->
+        <view class="weui-cell weui-cell_input expect-position-input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">简历头像</view>
+          </view>
+          <view class="weui-cell__bd">
+           <view wx:if="{{headUrl===''}}" class="weui-uploader__input-box" >
+                                <view class="weui-uploader__input" bindtap="uploadPortrait"></view>
+                            </view>
+          <image wx:if="{{headUrl!=''}}" src="{{headUrl}}"  class="head-pic">
+          <icon wx:if="{{headUrl!=''}}" class="icon" type="clear" size="15" bindtap="delPicture" />
+          </image>
+         
+         
+         
+        </view>
+
+
+
+          <!-- <view class="weui-cell__hd">
+            <view class="weui-label">简历头像</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请上传简历头像" disabled="true"  />
+          </view>
+           <image src="/images/job/upload.png" style="width:50rpx;height:50rpx;" bindtap="uploadPortrait" ></image> -->
+        </view>
+
+         <view class="weui-cell weui-cell_input expect-position-input">
+           
+          <view class="weui-cell__bd">
+             <textarea class="weui-textarea" placeholder="自我描述" maxlength="1000" value="{{introduce}}" style="height: 3.3em" bindinput="operateTextarea" />
+              <!-- <view class="weui-textarea-counter">{{wordNumber}}/1000</view> -->
+          </view>
+      </view>
+  
+    </view> 
+    <!-- 其他  -->
+      <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+     
+</view>
+
+<!--错误提示--->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>

@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="page__bd">
+
+    <!--条件查询工作岗位-->
+    <view class="condition">
+      <view class="position_category" bindtap="chooseCategory">
+        <view>期望工作：</view>
+        <view style="margin-top:0;">{{categoryName}}</view>
+      </view>
+      <view class="position_city" bindtap="chooseCity">
+        <view>期望城市：</view>
+        <view style="margin-top:0;">{{regionName}}</view>
+      </view>
+      <view class="position_salary">
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            <view>期望薪资：</view>
+            <view style="margin-top:0;">{{salary}}</view>
+          </view>
+        </picker>
+      </view>
+
+     
+
+      <view class="condition-btn">
+        <button class="weui-btn mini-btn" type="primary" size="mini" style="text-align:center;" bindtap="finishSelection">选好了</button>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<!-- <button class="weui-btn" type="default" bindtap="chooseCategory">
+      <view>期望工作：</view>
+      <view style="margin-top:0;">请选择想找的期望工作</view>
+    </button>
+    <button class="weui-btn" type="default" bindtap="chooseCity">
+      <view>期望城市：</view>
+      <view style="margin-top:0;">请选择想找的期望城市</view>
+    </button> -->
+<!--    
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+　　<view class="picker">
+     <view>期望薪资：</view>
+     <view style="margin-top:0;">请选择你期望的薪资</view>
+    </view>
+</picker> -->
+
+<!-- <view class='space'></view> -->

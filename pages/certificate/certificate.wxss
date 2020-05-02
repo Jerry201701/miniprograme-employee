@@ -1,0 +1,19 @@
+/* pages/certificate/certificate.wxss */
+.save{
+  background: #a7b0b9;
+  width: 150rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+.list_certificate{
+  margin-bottom: 30rpx;
+}
+ .choosed{
+  color:#0bb20c;
+} 
+ .unchoosed{
+  color:#999;
+} 

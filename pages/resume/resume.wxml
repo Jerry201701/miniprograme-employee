@@ -1,0 +1,331 @@
+<view class="container">
+  <view class="page ">
+    <view class="page__bd">
+      <!--标题和头像-->
+      <view class="weui-cells weui-cells_after-title ">
+        <view class="resume_brief">
+          <view class="resume_title">
+            <view class="emp_name">{{applicantName}}</view>
+            <view>{{expectPosition}}/{{age}}/{{workYears}}</view>
+          </view>
+          <view>
+            <image src="{{headUrl}}" class="portrait"></image>
+          </view>
+        </view>
+      </view>
+      <!--电话和邮箱-->
+      <view class="weui-cells weui-cells_after-title applicant-contact">
+
+      
+      <!--薪资水平--->
+       <view class="weui-cell weui-cell_input link">
+          <!-- <input class="weui-input" value="{{email}}"/> -->
+          <view class="weui-cell__hd">
+            <image src="/images/salary.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view>
+               {{minExpectSalary}}-{{maxExpectSalary}}
+            </view>
+           
+          </view>
+        </view>
+
+        <!--电话-->
+        <view class="weui-cell weui-cell_input link">
+          <!-- <input class="weui-input" value="{{email}}"/> -->
+          <view class="weui-cell__hd">
+             <image src="/images/phone.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view>
+              {{telephone}}
+            </view>
+            <!-- <input class="weui-input" value="13612345678(电话)"></input> -->
+          </view>
+          <!-- <view class="job_edit_btn">{{descEditStatus}}</view> -->
+        </view>
+
+        <!--邮箱-->
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd">
+             <image src="../../images/email.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view>
+              {{email}}
+            </view>
+            <!-- <input class="weui-input" value="haoyoulai@xx.com(邮箱)"></input> -->
+          </view>
+        </view>
+      </view>
+
+
+
+
+
+      <!--自我描述-->
+          <view class="edit-work-title">自我描述</view>
+      <view class="weui-cells weui-cells_after-title self-desc">
+        <view class="weui-cell weui-cell_input job_experience_title">
+          <!-- <view bindtap="selfDescEdit" class="job_edit_btn">{{descEditStatus}}</view> -->
+        </view>
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="工作描述" maxlength="1000" value="{{introduce}}" style="height: 3.3em" bindinput="operateTextarea" disabled='{{isEditeDesc}}' />
+            <!-- <view class="weui-textarea-counter">{{wordNumber}}/1000</view> -->
+          </view>
+        </view>
+      </view>
+      <view class="edit-basic" bindtap="editBasicInfo">编辑个人基本信息</view>
+
+      <!--展示和编辑工作经历-->
+      <view class="edit-work-title">工作经历</view>
+      <view class="work-history" wx:for-items="{{workExperienceList}}" wx:key="key">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell history-list">
+            <view class="work-begin">{{item.beginTime}}</view>
+            <view class="work-end">{{item.endTime}}</view>
+            <view class="work-company">{{item.companyName}}</view>
+            <view class="post-name">{{item.jobName}}</view>
+          </view>
+          <view class="weui-cell">
+            {{item.responsibility}}
+          </view>
+          <view class="weui-cell">
+            <button class="weui-btn mini-btn" type="primary" data-work="{{item.id}}" bindtap="editWorkExperience" size="mini">编辑</button>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input " catchtap="workHistory">
+        <image src="/images/job/add.png" class="add-icon">
+        </image>
+      </view>
+
+      <!--展示和编辑教育经历-->
+      <view class="edit-work-title">教育经历</view>
+      <view class="work-history" wx:for-items="{{educationExperienceList}}" wx:key="education">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell history-list">
+            <view class="work-begin">{{item.beginTime}}</view>
+            <view class="work-end">{{item.endTime}}</view>
+            <view class="work-company">{{item.schoolName}}</view>
+            <view class="post-name">{{item.majorName}}</view>
+          </view>
+          <view class="weui-cell">
+            {{item.educationDesc}}
+          </view>
+          <view class="weui-cell">
+            <button class="weui-btn mini-btn" type="primary" data-work="{{item.id}}" bindtap="editEducationExperience" size="mini">编辑</button>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input " catchtap="editEducation">
+        <image src="/images/job/add.png" class="add-icon">
+        </image>
+      </view>
+
+
+
+      <!--编辑和添加证书-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input job_experience_title">
+          <view class="edit-work-title">拥有证书</view>
+          <view bindtap="jobSkillEdit" class="job_edit_btn">{{skillEditStatus}}</view>
+        </view>
+        <view class="weui-cell skill-box">
+          <view class="skill" wx:for="{{certificateList}}" wx:key="{{index}}">{{item}}
+            <icon class="icon" wx:if="{{delCertificate}}" type="clear" size="15" data-index="{{index}}" catchtap="delSkill" />
+          </view>
+          <!-- <view class="btn-add" catchtap="showModal">+ 添加</view> -->
+        </view>
+        <view class="weui-cell">
+         <button class="weui-btn mini-btn" type="primary" data-work="{{item.id}}" bindtap="editCertificate" size="mini">{{delCertificate?'保存':'编辑'}}</button>
+        
+        </view>
+        <view class="weui-cell weui-cell_input " catchtap="workHistory">
+          <image src="/images/job/add.png" class="add-icon add-certificate" bindtap="add_certificate">
+          </image>
+        </view>
+
+      </view>
+
+
+      <!-- <view class="brief">
+        <view>
+          <view class="emp_name">大厨</view>
+          <view>中餐/35/10年</view>
+        </view>
+        <view>
+          <image src="/images/emp.jpg" class="portrait"></image>
+        </view>
+      </view> -->
+
+      <!--电话和邮箱-->
+      <!-- <view class="weui-cells weui-cells_after-title contact">
+        <view class="weui-cell weui-cell_example ">
+          <view class="weui-cell__hd">
+            <image src="/images/job/phone.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" value="13612345678(电话)"></input>
+          </view>
+          <view class="edit">编辑</view>
+        </view>
+        <view class="weui-cell weui-cell_example ">
+          <view class="weui-cell__hd">
+            <image src="/images/job/email.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" value="haoyoulai@xx.com(邮箱)"></input>
+          </view>
+        </view>
+      </view> -->
+      <!--自我描述-->
+      <!-- <view class="weui-cells__title desc">
+        <view>自我描述</view>
+        <view class="edit">编辑</view>
+
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea"  style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+      </view> -->
+
+      <!--工作经历-->
+      <!--       
+      <view class="weui-cells experience">
+        <view class="desc">
+          <view>工作经历</view>
+          <view class="edit">编辑</view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view>开始日期</view>
+          </view>
+          <view class="weui-flex__item">
+            <view>结束日期</view>
+          </view>
+          <view class="weui-flex__item">
+            <view>公司名称</view>
+          </view>
+          <view class="weui-flex__item">
+            <view>工作岗位</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="weui-cell__bd">
+              <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="weui-input position">{{date}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="weui-input position">{{date}}</view>
+            </picker>
+          </view>
+          <view class="weui-flex__item position">
+            <view>好友来中餐馆</view>
+          </view>
+          <view class="weui-flex__item position">
+            <view>厨师</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view>工作内容</view>
+            <textarea class="weui-textarea" disabled="true" placeholder="工作主要为炒菜，下面" style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+        
+        <view class="add_job" catchtap="workHistory">
+          <view>
+            <image src="/images/job/add.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view>添加工作经历</view>
+        </view>
+         -->
+      <!--教育经历-->
+      <!-- <view class="desc">
+          <view>工作经历</view>
+          <view class="edit">编辑</view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view>开始日期</view>
+          </view>
+          <view class="weui-flex__item">
+            <view>结束日期</view>
+          </view>
+          <view class="weui-flex__item">
+            <view>学校名称</view>
+          </view>
+          <view class="weui-flex__item">
+            <view>专业</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="weui-cell__bd">
+              <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="weui-input position">{{date}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="weui-input position">{{date}}</view>
+            </picker>
+          </view>
+          <view class="weui-flex__item position">
+            <view>成都烹饪学院</view>
+          </view>
+          <view class="weui-flex__item position">
+            <view>中餐专业</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view>工作内容</view>
+            <textarea class="weui-textarea" disabled="true" placeholder="工作主要为炒菜，下面" style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+        <view class="add_job" catchtap="editEducation">
+          <view>
+            <image src="/images/job/add.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view>添加教育经历</view>
+        </view> -->
+      <!--证书-->
+      <!-- <view class="desc">
+          <view>拥有证书</view>
+          <view class="edit">编辑</view>
+        </view>
+        <view class="certificates">
+          <view class="certificate">健康证</view>
+          <view class="certificate">糕点师</view>
+        </view>
+        <view class="add_job" bindtap="add_certificate">
+          <view>
+            <image src="/images/job/add.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view>添加证书</view>
+        </view>
+      </view> -->
+
+
+
+
+    </view>
+  </view>
+</view>

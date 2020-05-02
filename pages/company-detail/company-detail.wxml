@@ -1,0 +1,66 @@
+<view class="container">
+  <!-- 下拉筛选框 -->
+  <view class="page">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text " class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{                       {inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索公司</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+
+    <view class="page__bd">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell" bindtap="getJobDetails">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="http://www.scsflr.com/images/job/1.jpg" style="width: 50px; height: 50px; display: block" />
+          </view>
+          <view class="weui-cell__bd desc">
+            <view>
+              <view>{{fullName}}</view>
+              <view style="font-size: 13px;color: #888888;">品牌：{{brand}}</view>
+              <view style="font-size: 13px;color: #888888;">{{address}}</view>
+            </view>
+            <view class="salary">
+              <view class="item3">{{minStaff}}-{{maxStaff}}人</view>
+              <view class="item4"></view>
+            </view>
+          </view>
+        </view>
+
+
+        <!--公司简介-->
+        <view class="weui-article">
+          <view class="weui-article__section">
+            <view class="weui-article__section">
+              <view class="weui-article__h2">公司简介</view>
+              <view class="weui-article__p company_content">
+               {{description}}
+              </view>
+              <view class="company-address" bindtap="goMap">
+                <view>公司地址：{{address}}</view>
+                <view><image src="/images/map.png" class="locate"></image></view>
+              </view>
+              <view>目前门店管理员</view>
+              <view>张大厨</view>
+              <!-- <button class="weui-btn" type="primary">加入公司</button> -->
+            </view>
+          </view>
+        </view>
+
+
+
+      </view>
+       <button class="weui-btn" type="default" bindtap="editCompanyInfo">编辑公司信息</button>
+    </view>
+  </view>
+</view>

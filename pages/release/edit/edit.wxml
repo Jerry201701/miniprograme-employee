@@ -1,0 +1,114 @@
+<view class="container">
+  <view class="page">
+    <view class="page__bd ">
+
+
+     <view class="weui-cells weui-cells_after-title ">
+        <view class="weui-cell weui-cell_example ">
+          <view class="weui-cell__hd ">
+            <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd title">{{jobInfo.jobName}}</view>
+          <view class="weui-cell__ft">{{jobInfo.salaryRange}}</view>
+        </view>
+      </view>
+      <!--地域，学历与工作经验-->
+      <view class="weui-cells weui-cells_after-title basic">
+        <view class="weui-cell">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src='/images/location.png' class="icon" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{jobInfo.city}},{{jobInfo.district}}</view>
+          </view>
+        </view>
+        <view class="weui-cell education">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src='/images/education.png' class="icon" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{jobInfo.educationLevel}}</view>
+          </view>
+        </view>
+        <view class="weui-cell education">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src='/images/experience.png' class="icon" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{jobInfo.workExperience}}</view>
+          </view>
+        </view>
+      </view>
+      <!--证书与状态-->
+
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="weui-cell education">
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+              <image src='/images/experience.png' class="icon" />
+            </view>
+            <view class="weui-cell__bd certificate">
+            {{jobInfo.certificates}}
+              <!-- <view>厨师证，</view>
+              <view>糕点证，</view>
+              <view>西餐证</view> -->
+            </view>
+          </view>
+        </view>
+        <view>
+          <button class="weui-btn status" type="primary">已面试</button>
+        </view>
+      </view>
+      <!--职位详情-->
+      <h1>职位详情</h1>
+      <view class="position-desc">
+      {{jobInfo.jobDescription}}
+       
+      </view>
+      <!--公司简介-->
+      <view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box__title weui-media-box__title_in-text">公司名称</view>
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="/images/1.jpg" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">吃了还要来中餐馆</view>
+              <view class="weui-media-box__desc">坐落于美食天堂的天府之国四川成都，公司有米其林大厨500余人，经营中国五大菜系的各色美食。</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <!--工作地点-->
+      <view class="weui-media-box__title weui-media-box__title_in-text">工作地点</view>
+      <view class="weui-media-box__desc location" bindtap='goMap'>
+          <view>
+          地址:金周路1号珠宝中心4楼401号
+          </view>
+          <view >
+          <image src="/images/map.png" class="map"></image>
+          </view>
+      </view>
+       <view class='space'></view>
+      <!--地图定位-->
+      <!--编辑按钮-->
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view>
+            <button class="weui-btn " type="primary"  bindtap="editJobInfo">编辑</button>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+          <view>
+            <button class="weui-btn " type="primary" bindtap="publish">发布</button>
+          </view>
+        </view>
+      </view>
+
+
+
+      <!--end-->
+    </view>
+  </view>
+</view>

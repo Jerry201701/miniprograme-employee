@@ -1,0 +1,37 @@
+<view class="container {{dark ? 'ground' : ''}}">
+  <view class="page__bd">
+    <!--搜索框-->
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text " class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索公司岗位</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput"> 取消</view>
+    </view>
+  </view>
+  <view class="fist_img">
+    <image src="/images/job/logo.jpg" style="text-align:center;"></image>
+  </view>
+  <view class="begin_login" bindtap="weiLoad">登录食才，开始效率招聘</view>
+  <!-- <view class="{{istrue ? 'weui-demo-dialog_show' : 'dialog-display'}} notice">
+    <view bindtap="closeDialog">
+      <image src="/images/job/cancel.png" class="cancel-img"></image>
+    </view>
+    <view class="notice_msg">登录或者注册食才</view>
+    <button class="weui-btn load_wei" type="primary">微信快速登陆</button>
+    <button class="weui-btn load_phone" type="primary">手机号注册/登陆</button>
+  </view>
+  -->
+   <!-- 登录弹框  -->
+  <login-dialog id="loginDialog" bind:authPhoneNumberSuccess="authPhoneNumberSuccess"></login-dialog>
+
+</view>

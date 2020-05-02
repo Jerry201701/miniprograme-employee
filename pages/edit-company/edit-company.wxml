@@ -1,0 +1,126 @@
+<view class="container">
+  <!-- 下拉筛选框 -->
+  <view class="page">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text " class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{                       {inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索公司岗位</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="aspiration" style="margin-top:30rpx;">
+      <!-- <view class="form-title">告诉我们你更想成为的那个</view> -->
+      <view class="create-title">新建公司/门店</view>
+      <view class="weui-cells weui-cells_after-title add">
+        <view class="weui-cell weui-cell_input expect-position-input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">公司/门店全称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入公司/门店全称" value="{{companyInfo.fullName}}" data-event="input" bindinput="fullNameInput" />
+          </view>
+          <!-- <view class="weui-icon-clear" wx:if="{{companyInfo.fullName.length > 0}}"  data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+          <!-- <view class="arrow-right"></view>  -->
+        </view>
+
+        <view class="weui-cell weui-cell_input expect-position-input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">公司品牌</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入公司拥有品牌" value="{{companyInfo.brand}}" data-event="input" bindinput="brandInput" />
+          </view>
+          <!-- <view class="weui-icon-clear" wx:if="{{companyInfo.brand.length > 0}}"  data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+          <!-- <view class="arrow-right"></view>  -->
+        </view>
+
+        <view class="weui-cell weui-cell_input expect-position-input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">简称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入公司/品牌简称" value="{{companyInfo.shortName}}" data-event="input" bindinput="shortNameInput" />
+          </view>
+          <!-- <view class="weui-icon-clear" wx:if="{{companyInfo.shortName.length > 0}}"  data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+          <!-- <view class="arrow-right"></view>  -->
+        </view>
+
+        <view class="weui-cell weui-cell_input salary-input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">人员规模</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="multiSelector" range="{{staffRange}}" value="{{staffValue}}" bindchange="bindStaffChange" bindcolumnchange="columnchange">
+              <view class="sex picker-inner">
+                <text class="placeholder" wx:if="{{!companyInfo.minStaff}}">请选择人员规模</text>
+                <text class="sex-val" wx:else>{{companyInfo.minStaff}}人 - {{companyInfo.maxStaff}}人</text>
+                <!-- <text class="arrow-right"></text> -->
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input expect-position-input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">公司地址</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请选择公司门店/地址" value="{{companyInfo.address}}" data-event="input" bindinput="adressInput" />
+          </view>
+          <!-- <view class="weui-icon-clear" wx:if="{{companyInfo.address.length > 0}}"  data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+          <!-- <view class="arrow-right"></view>  -->
+          <image src="/images/ico-addr.png" style="width:50rpx;height:50rpx;" bindtap="getLocation"></image>
+        </view>
+        <!--公司logo上传-->
+        <view class="weui-cell weui-cell_input expect-position-input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">公司logo</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请上传公司logo图片" disabled="true"  />
+          </view>
+           <image src="/images/job/upload.png" style="width:50rpx;height:50rpx;" bindtap="uploadLogo" ></image>
+        </view>
+
+      </view>
+      <view class="weui-cells weui-cells_after-title textarea-weui-cells">
+        <view class="weui-cell ">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="公司简要介绍" maxlength="1000" value="{{companyInfo.description}}" style="height: 3.3em" bindinput="operateTextarea" />
+            <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+          </view>
+          <!-- <view class="weui-icon-clear" wx:if="{{companyInfo.shortName.length > 0}}"  data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+          <!-- <view class="arrow-right"></view>  -->
+        </view>
+      </view>
+
+      <!-- 其他  -->
+      <button class="save-btn btn-w690" type="primary" bindtap="save">完成</button>
+      <!-- <button class="del-btn btn-w690" type="primary"  bindtap="del">清空数据</button> 
+      <view class="cue">注意：删除的按钮在有数据的时候存在</view>  -->
+    </view>
+
+
+    <!-- 自定义toast  -->
+    <!-- <template is="defineToast" data="{{...deToast}}" /> -->
+
+  </view>
+</view>

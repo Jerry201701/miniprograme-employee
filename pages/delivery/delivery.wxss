@@ -1,0 +1,230 @@
+/* pages/release/list/list.wxss */
+.positions{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+}
+.position{
+  width: 500rpx;
+  display: flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+  
+
+}
+
+.brief{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+}
+.conditions{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-around;
+  margin-top: 20rpx;
+
+}
+.condition{
+  margin-right: 10rpx;
+  width: 200rpx;
+}
+.district{
+    margin-right: 10rpx;
+width: 200rpx;
+}
+.post_title{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:flex-start;
+  align-items:baseline;
+}
+.job-name{
+  width: 200rpx;
+}
+.post_salary{
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  width: 100rpx;
+
+}
+.positon_status{
+  width: 150rpx;
+  background: #6786f9;
+  color: #fff;
+  font-size: 40rpx;
+  border-radius: 20rpx;
+  
+}
+.position_top{
+  text-align: center;
+}
+.icon {
+  display: inline-block;
+  border: 10rpx solid transparent;
+  border-top: 10rpx solid #666;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+.nav {
+  position: relative;
+  z-index: 99;
+  display: flex;
+  border-bottom: 1rpx solid #f4f4f4;
+  background: #fff;
+}
+
+.nav-son {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+.content {
+  display: inline-block;
+  font-size: 32rpx;
+  color: #666;
+}
+
+
+.list-msg {
+    padding: 0 20rpx;
+    background-color: #fff;
+    position: relative;
+}
+ 
+.list-msg1 {
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.list-msg .list-msg2 {
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 0 10rpx;
+}
+ 
+.select_box {
+    position:absolute;
+    left: 50%;
+    background-color: #eee;
+    padding: 0 10rpx;
+    width: 150rpx;
+    z-index: 10;
+    overflow: hidden;
+    animation: myfirst 0.5s;
+
+}
+ 
+@keyframes myfirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+        height: 210rpx;
+    }
+}
+ 
+.select_one {
+    height: 60rpx;
+    line-height: 60rpx;
+    border-bottom: 1px solid #ccc;
+}
+.display{
+  background: #f21c63;
+}
+
+
+.fullbg {
+  position: fixed;
+  top: 132rpx;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgb(1, 1, 1);
+  transition: all 2s;
+  opacity: 0;
+}
+
+.fullopacity {
+  opacity: 0.5;
+}
+.desc{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+
+
+}
+.salary{
+display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+justify-content:space-between;
+
+}
+.item3{
+font-size: 13px;color: #888888;
+
+}
+.item4{
+font-size: 13px;color: #888888;
+}
+.introduce{
+  font-size: 25rpx;
+
+}
+.delivery-conditions{
+  display: flex;
+flex-direction:row;
+flex-wrap:nowrap;
+justify-content:space-between;
+
+}
+.right-pic{
+  display: flex;
+flex-direction:row;
+flex-wrap:nowrap;
+justify-content:flex-start;
+
+}
+.name-other{
+  display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+/* justify-content:space-between; */
+
+}
+.delivery-time{
+  font-size:20rpx;
+  display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+ justify-content:space-between; 
+}
+.certificate{
+  font-size: 25rpx;
+}
+.checkbox{
+float: right;
+
+}
+
+

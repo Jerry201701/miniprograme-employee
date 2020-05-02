@@ -1,0 +1,76 @@
+<!-- 下拉筛选框 -->
+<view class="page">
+  <view class="nav">
+    <view class="nav-son" bindtap="listqy" data-nav="1" data-num="">
+      <view class="content">请选择区域</view>
+      <view class="icon"></view>
+    </view>
+  </view>
+  <!-- 地铁区域-》区域、地铁标签 -->
+  <view class="quyu {{qyopen ? 'slidown' : 'slidup'}} {{qyshow ? 'disappear':''}}">
+
+    <view class="qy quyu-left">
+      <view class="{{select1 == index ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{index}}'>
+        {{index}}
+      </view>
+    </view>
+    <view class="qy quyu-center">
+      <view class="{{select2 == index ? 'current2' : ''}}" wx:for="{{citycenter}}" bindtap="selectcenter" data-city='{{index}}'>
+        {{index}}
+      </view>
+    </view>
+    <view class="qy quyu-right">
+      <view wx:for="{{cityright}}" class="{{select3 == index?'current3':''}}" bindtap='selectright' data-city="{{index}}">
+        <label>{{item}}</label>
+        <image src='/images/selectRight.png' style="{{select3 == index?'display:block':'display:none'}}"></image>
+      </view>
+    </view>
+    <view class='form-btn'>
+      <button class='btn-reset' bindtap='quyuEmpty'>重置</button>
+      <button class='btn-submit' bindtap='submitFilter'>确定</button>
+    </view>
+  </view>
+  <view class="fullbg {{isfull ?'fullopacity':''}}" bindtap="hidebg"></view>
+  <view class="record">
+  <view class="tabbar_box">
+    <view class="recent">最近访问</view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+      <button class="weui-btn" type="default">成都</button>
+        
+      </view>
+      <view class="weui-flex__item">
+        <button class="weui-btn" type="default">武汉</button>
+      </view>
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">重庆</button>
+      </view>
+    </view>
+    <view class="recent">热门城市</view>
+    
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">成都</button>
+      </view>
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">广州</button>
+      </view>
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">上海</button>
+      </view>
+    </view>
+   
+    <view class="weui-flex hot">
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">成都</button>
+      </view>
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">北京</button>
+      </view>
+      <view class="weui-flex__item">
+         <button class="weui-btn" type="default">深圳</button>
+      </view>
+  </view>
+    </view>
+  </view>
+</view>

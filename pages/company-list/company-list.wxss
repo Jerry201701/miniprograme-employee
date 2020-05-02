@@ -1,0 +1,57 @@
+/* pages/test/test.wxss */
+.container {
+  background-color: #fff;
+  min-height: 100%;
+  display: block;
+}
+.main {
+  width: 100%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+}
+.desc{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+
+
+}
+.salary{
+display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+justify-content:space-between;
+
+}
+.item3{
+font-size: 13px;color: #888888;
+
+}
+.item4{
+font-size: 13px;color: #888888;
+}
+
+/*
+.item {
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.item1 {
+  background-color: red;
+}
+
+.item2 {
+  background-color: dodgerblue;
+}
+
+.item3 {
+  background-color: greenyellow;
+}
+*/

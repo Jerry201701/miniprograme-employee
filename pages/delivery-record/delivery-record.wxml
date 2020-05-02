@@ -1,0 +1,131 @@
+<view class="container">
+  <!-- 下拉筛选框 -->
+  <view class="page">
+
+    <view class="delivery_status">
+    <view class="delivery_all">全部</view>
+    <view class="delivery_view">被查看</view>
+    <view class="delivery_interview">面试</view>
+    <view class="delivery_inappropriate">不合适</view>
+    </view>
+
+    <view class="page__bd">
+      <view class="weui-cells weui-cells_after-title" wx:for="{{jobList}}" wx:key="key">
+        <!-- <view class="weui-cell" bindtap="getJobDetails">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="https://picture2019-1256835711.cos.ap-beijing.myqcloud.com/recruit/1.jpg" style="width: 50px; height: 50px; display: block" />
+          </view>
+          <view class="weui-cell__bd desc">
+            <view>
+              <view>凉菜大厨</view>
+              <view style="font-size: 13px;color: #888888;">小场合</view>
+              <view style="font-size: 13px;color: #888888;">成都 三年 川菜</view>
+            </view>
+            <view class="salary">
+              <view class="item3">5k-8k</view>
+              <view class="item4">9月28日</view>
+            </view>
+          </view>
+        </view> -->
+
+
+ <view class="weui-cell" bindtap="getJobDetails" data-id="{{item.jobId}}">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{item.companyLogo}}" style="width: 50px; height: 50px; display: block"/>
+                </view>
+                <view class="weui-cell__bd desc" >
+                    <view>
+                      <view>{{item.jobName}}</view>
+                      <view style="font-size: 13px;color: #888888;">{{item.brand}}</view>
+                      <view style="font-size: 13px;color: #888888;"> {{item.city}} {{item.minWorkYears}}-{{item.maxWorkYears}}</view>
+                    </view>
+                    <view class="salary">
+                      <view class="item3" >{{item.minSalary}}-{{item.maxSalary}}</view> 
+                      <view class="item4" >{{item.createTime}}</view>
+                    </view>
+                </view>
+            </view>
+
+
+
+
+
+
+<!-- 
+        <view class="weui-cell" bindtap="getJobDetails" data-id="{{item.id}}">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="https://picture2019-1256835711.cos.ap-beijing.myqcloud.com/recruit/1.jpg" style="width: 50px; height: 50px; display: block"/>
+                </view>
+                <view class="weui-cell__bd desc" >
+                    <view>
+                      <view>{{item.jobName}}</view>
+                      <view style="font-size: 13px;color: #888888;">小场合</view>
+                      <view style="font-size: 13px;color: #888888;"> 三年 川菜</view>
+                    </view>
+                    <view class="salary">
+                      <view class="item3" >{{item.salaryRange}}</view> 
+                      <view class="item4" >{{item.createTime}}</view>
+                    </view>
+                </view>
+            </view> -->
+
+
+
+
+
+
+
+        <!-- <view class="weui-cell">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="https://picture2019-1256835711.cos.ap-beijing.myqcloud.com/recruit/1.jpg" style="width: 50px; height: 50px; display: block" />
+          </view>
+          <view class="weui-cell__bd desc">
+            <view>
+              <view>凉菜大厨</view>
+              <view style="font-size: 13px;color: #888888;">小场合</view>
+              <view style="font-size: 13px;color: #888888;">成都 三年 川菜</view>
+            </view>
+            <view class="salary">
+              <view class="item3">5k-8k</view>
+              <view class="item4">9月28日</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="https://picture2019-1256835711.cos.ap-beijing.myqcloud.com/recruit/1.jpg" style="width: 50px; height: 50px; display: block" />
+          </view>
+          <view class="weui-cell__bd desc">
+            <view>
+              <view>凉菜大厨</view>
+              <view style="font-size: 13px;color: #888888;">小场合</view>
+              <view style="font-size: 13px;color: #888888;">成都 三年 川菜</view>
+            </view>
+            <view class="salary">
+              <view class="item3">5k-8k</view>
+              <view class="item4">9月28日</view>
+            </view>
+          </view>
+        </view> -->
+
+
+
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 
+    <view class="main">
+    <view class="item item1"><image src="http://www.scsflr.com/images/job/1.jpg" style="width: 50px; height: 50px; display: block"/></view>
+    <view class="item item2">
+    <view>凉菜大厨</view>
+    <view style="font-size: 13px;color: #888888;">小场合</view>
+    <view style="font-size: 13px;color: #888888;">成都 三年 川菜</view>
+    </view>
+    <view class="item item3"><view>凉菜大厨</view>
+    <view style="font-size: 13px;color: #888888;">小场合</view>
+    <view style="font-size: 13px;color: #888888;">成都 三年 川菜</view></view>
+  </view> -->

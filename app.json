@@ -1,0 +1,83 @@
+{
+  "pages": [
+    "pages/job/job",
+    "pages/region/region",
+    "pages/experience/job-experience/index",
+    "pages/experience/education-experience/index",
+    "pages/resume/create-resume/create-resume",
+    "pages/choose-category/index",
+    "pages/resume/edit-resume/edit-resume",
+    "pages/delivery-record/delivery-record",
+    "pages/resume/resume",
+    "pages/me/me",
+    "pages/job-details/index",
+    "pages/chat/chat",
+    "pages/message/index",
+    "pages/job-list/index",
+    "pages/delivery/delivery",
+    "pages/release/list/list",
+    "pages/first/first",
+    "pages/start/start",
+    "pages/index/index",
+    "pages/job-hunter-list/job-hunter-list",
+    "pages/edit-company/edit-company",
+    "pages/delivery/delivery-single/delivery-single",
+    "pages/company-list/company-list",
+    "pages/create-company/create-company",
+    "pages/release/add/add",
+    "pages/release/update/update",
+    "pages/release/edit/edit",
+    "pages/company-detail/company-detail",
+    "pages/certificate/certificate",
+    "pages/release/add/add-name/add-name",
+    "pages/loginRegister/loginRegister",
+    "pages/city/city",
+    "pages/my/index",
+    "pages/authorize/index",
+    "pages/authorize/bindmobile",
+    "pages/asset/index",
+    "pages/sign/index",
+    "pages/category/category"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/job-list/index",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png",
+        "text": "职位"
+      },
+      
+      {
+        "pagePath": "pages/message/index",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "images/nav/my-off.png",
+        "selectedIconPath": "images/nav/my-on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx56c8f077de74b07c"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "mp-toptips": "components/toptips/toptips"
+  }
+}

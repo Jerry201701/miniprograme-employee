@@ -1,0 +1,52 @@
+/* pages/test/test.wxss */
+.container {
+  background-color: #fff;
+  min-height: 100%;
+  display: block;
+}
+.main {
+  width: 100%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+}
+.desc{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+
+
+}
+.salary{
+display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+justify-content:space-between;
+
+}
+.item3{
+font-size: 13px;color: #888888;
+
+}
+.item4{
+font-size: 13px;color: #888888;
+}
+.company_content{
+  font-size: 30rpx;
+}
+.company-address{
+  display: flex;
+  flex-direction:row;
+ flex-wrap:nowrap;
+ justify-content:space-between;
+
+}
+.locate{
+  width: 50rpx;
+  height: 50rpx;
+}

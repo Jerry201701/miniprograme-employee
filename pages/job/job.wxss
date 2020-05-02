@@ -1,0 +1,62 @@
+.container {
+  background-color: #fff;
+  height: 1100rpx;
+  display: block;
+
+}
+
+.condition{
+  text-align: center;
+}
+.position_category{
+  margin: 0 auto;
+   width: 500rpx;
+  font-size: 30rpx;
+  border: 5rpx solid #a7b8c8;
+  margin-top: 50rpx;
+  text-align: left;
+  border-radius: 20rpx;
+
+}
+.position_city{
+  margin: 0 auto;
+   width: 500rpx;
+  font-size: 30rpx;
+  border: 5rpx solid #a7b8c8;
+   margin-top: 50rpx;
+   text-align: left;
+   border-radius: 20rpx;
+
+}
+.position_salary{
+  margin: 0 auto;
+   width: 500rpx;
+  font-size: 30rpx;
+  border: 5rpx solid #a7b8c8;
+   margin-top: 50rpx;
+   text-align: left;
+   border-radius: 20rpx;
+
+}
+.condition-btn{
+  position:absolute;
+  right: 50rpx;
+  top: 800rpx;
+}
+
+.select-wrap {
+  width: 150rpx;
+  height: 20px;
+  line-height: 40px;
+  margin-left: 40rpx;
+  border:1px none;
+  border-radius:5px;
+ 
+}
+
+
+
+
+
+
+/* picker{margin-bottom:16px;} */

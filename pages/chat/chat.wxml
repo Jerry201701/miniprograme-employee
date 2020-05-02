@@ -1,0 +1,84 @@
+<view class="page">
+  <view class="page__bd">
+
+   
+    <view  wx:if="{{employee!=1}}" class="chat">
+      <view class="information">
+        <view style="margin-left:10rpx;">
+          <view class="send-name">{{jobName}}</view>
+          <view>{{city}}.{{district}}|{{minWorkYears}}-{{maxWorkYears}}|{{educationLevel}}</view>
+          <view>个人简介</view>
+          <view class="brief">{{jobDescription}}</view>
+          <view class="certificate"  >
+            <view class="certificate-list"wx:for="{{certificateList}}" wx:key="{{index}}">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+       <!--查看历史聊天信息--->
+     <!-- <button class="weui-btn" type="default" bindtap="chatHistoryRecord">查看历史聊天记录</button> -->
+  
+    
+    <!--聊天--->
+    <view class="news" bindtap='outbtn'>
+      <view class="historycon">
+        <scroll-view scroll-y="true" class="history" scroll-top="{{scrollTop}}">
+          <block wx:for="{{newslist}}" >
+            <!--自己的消息  -->
+            <view class="chat-news"   wx:if="{{item.messageType===4}}">
+              <view style="text-align: right;padding-right: 20rpx;">
+                <text class="name">{{applicantName}}</text>
+                <image class='new_img' src="{{headUrl}}"></image>
+              </view>
+              <view class='my_right'>
+                <block >
+                  <view class='new_txt'>{{item.messageContent}}</view>
+                </block>
+                <!--展示发送的图片-->
+                <!-- <block wx:if="{{item.type=='image'}}">
+                  <image class="selectImg" src="{{item.images}}" data-src="{{item.images}}" lazy-load="true" bindtap="previewImg"></image>
+                </block> -->
+              </view>
+            </view>
+            <!-- 别人的消息  -->
+            <view class="chat-news" wx:if="{{item.messageType===3}}">
+              <view style="text-align: left;padding-left: 20rpx;">
+                <image class='new_img' src="{{companyLogo}}"></image>
+                <text class="name">{{companyName}}</text>
+              </view>
+              <view class='you_left'>
+                <block >
+                  <view class='new_txt'>{{item.messageContent}}</view>
+                </block>
+                <block wx:if="{{item.type=='image'}}">
+                  <image class="selectImg" src="{{item.images}}" data-src="{{item.images}}" lazy-load="true" bindtap="previewImg"></image>
+                </block>
+              </view>
+            </view>
+
+
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+    <view id="flag"></view>
+
+
+
+
+
+    <!-- 聊天输入 -->
+    <view class="message">
+      <form bindreset="cleanInput" class="sendMessage">
+        <input type="text" placeholder="请输入聊天内容.." value="{{massage}}" bindinput='bindChange'></input>
+        <view class="add" bindtap='increase'>+</view>
+        <button type="primary" bindtap='send' formType="reset" size="small" button-hover="blue">发送</button>
+      </form>
+      <view class='increased {{aniStyle?"slideup":"slidedown"}}' wx:if="{{increase}}">
+        <view class="image" bindtap='chooseImage'>相册 </view>
+      </view>
+    </view>
+
+  </view>
+</view>

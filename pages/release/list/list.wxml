@@ -1,0 +1,85 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="nav">
+      <view class="nav-son" data-nav="1" data-num="" bindtap='bindShowMsg'>
+        <view class="content">{{tihuoWay}}</view>
+        <view class="icon"></view>
+      </view>
+    </view>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+      <view class="select_one" bindtap="mySelect" data-name="全部">全部</view>
+      <view class="select_one" bindtap="mySelect" data-name="发布中">发布中</view>
+      <view class="select_one" bindtap="mySelect" data-name="审核中">审核中</view>
+      <view class="select_one" bindtap="mySelect" data-name="已招聘">已招聘</view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title "  wx:for="{{jobList}}" wx:key="key">
+      <navigator url="../edit/edit?id={{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd positions">
+          <view class="position">
+            <view class="post_title">
+              <view class="job-name">{{item.jobName}}</view>
+              <view class="post_salary">{{item.salaryRange}}</view>
+            </view>
+            <view class="conditions">
+              <view class="condition">{{item.city}}</view>
+              <view class="district">{{item.district}}</view>
+              <view class="condition">{{item.educationLevel}}</view>
+              <view class="condition">{{item.workExperience}}</view>
+            </view>
+          </view>
+          <view>
+            <view class="positon_status">发布中</view>
+          </view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+<!-- 
+      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd positions">
+          <view class="position">
+            <view class="post_title">
+              <view>热菜厨师</view>
+              <view class="post_salary">5k-7k</view>
+            </view>
+            <view class="conditions">
+              <view class="condition">成都</view>
+              <view class="condition">高新区</view>
+              <view class="condition">初中</view>
+              <view class="condition">1-3年</view>
+            </view>
+          </view>
+          <view>
+            <view class="positon_status">发布中</view>
+          </view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+
+      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd positions">
+          <view class="position">
+            <view class="post_title">
+              <view>热菜厨师</view>
+              <view class="post_salary">5k-7k</view>
+            </view>
+            <view class="conditions">
+              <view class="condition">成都</view>
+              <view class="condition">高新区</view>
+              <view class="condition">初中</view>
+              <view class="condition">1-3年</view>
+            </view>
+          </view>
+          <view>
+            <view class="positon_status">发布中</view>
+          </view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator> -->
+    </view>
+    <button type="primary" bindtap="addPosition">发布新岗位</button>
+
+
+  </view>
+</view>

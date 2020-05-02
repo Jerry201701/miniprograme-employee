@@ -1,0 +1,77 @@
+<view class="page">
+  <!-- <view class="first-line">
+<view>
+<view class="select-wrap">
+    <select id="select" options="{{options}}" key="city_id" text="city_name" bind:change="change"></select>
+  </view>
+</view>
+<view>只看未读</view>
+</view> -->
+
+  <view class="weui-flex first-line">
+    <view class="weui-flex__item position-category">
+      <view class="select-wrap">
+        <select id="select" style="height:50px;" options="{{options}}" key="city_id" text="city_name" bind:change="change"></select>
+      </view>
+    </view>
+    <view class="weui-flex__item unread" bindtap="showUnread">
+      <view class="unread-title">只看未读</view>
+    </view>
+  </view>
+
+  <!--罗列所有信息-->
+
+  <!-- 
+              <view class="weui-cells weui-cells_after-title">
+            <navigator url="/pages/chat/chat?jobId=67" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                   <image src="https://picture2019-1256835711.cos.ap-beijing.myqcloud.com/recruit/emp.jpg" style="margin-right: 16px;vertical-align: middle;width:40px; height: 40px;"></image>
+                </view>
+                <view class="weui-cell__bd">
+                <view class="one-line">
+                <view class="message-title">通知</view>
+                <view class="message-time">2020-03-10 12:12:12</view>
+                </view>
+                <view class="message-content">来自湖北恩施土家族苗族自治州的向梦很激动。18日19时34分，载着547名湖北恩施籍务工人员的D658次就业专列顺利抵达浙江绍兴。据悉，这是今年全国首趟从湖北发出的就业专列。</view>
+                </view>
+            </navigator>
+        </view>
+ -->
+
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell" wx:for="{{messageArray}}" wx:key="messageId" bindtap="startChat" data-jobId="{{item.jobId}}" data-type="{{item.messageType}}" data-companyId="{{item.companyId}}">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{item.companyLogo}}" style="width: 50px; height: 50px; display: block" />
+        <view wx:if="{{item.unread}}" class="weui-badge weui-badge_dot" style="position: absolute;top: -.4em;right: -.4em;"></view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="sys_message_title" wx:if="{{item.messageType==1}}">通知</view>
+        <view class="sys_message_title" wx:else>{{item.companyName}}</view>
+        <view class="sys_message_content">{{item.messageContent}}</view>
+        <view style="font-size: 13px;color: #888888;"></view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <!-- 
+         <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" wx:for="{{chatRecordArray}}" wx:key="messageId" bindtap="startChat" data-jobId="{{item.jobId}}" data-senderId="{{item.senderId}}" >
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="https://picture2019-1256835711.cos.ap-beijing.myqcloud.com/recruit/emp.jpg" style="width: 50px; height: 50px; display: block"/>
+                    <view wx:if="{{item.unread}}" class="weui-badge weui-badge_dot" style="position: absolute;top: -.4em;right: -.4em;"></view>
+                </view>
+                <view class="weui-cell__bd">
+                   <view class="sys_message_title" >聊天</view>
+                  <view class="sys_message_content">{{item.messageContent}}</view>
+                    <view style="font-size: 13px;color: #888888;"></view>
+                </view>
+            </view>
+          </view> -->
+
+
+
+
+</view>

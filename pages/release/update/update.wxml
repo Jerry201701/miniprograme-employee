@@ -1,0 +1,102 @@
+<view class="page">
+  <!-- <view class="page__hd add-head">
+    <view class="page__title" style="margin-bottom:10rpx;">发布岗位</view>
+    <view class="page__desc">职位名称和工作城市发布后不可更改</view>
+  </view> -->
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <!-- <view class="weui-cell ">
+        我要招聘
+      </view> -->
+      <view class="weui-cell ">
+        <input class="weui-input post-content"  disabled="true" bindtap="addName" value="{{jobName}}"/>
+        <view class="arrow-right"></view>
+      </view>
+      <view class="weui-cell  ">
+        <view class="weui-flex requires ">
+          <view class="weui-flex__item">
+            <picker bindchange="workPickerChange" value="{{workIndex}}" range="{{workExperienceArray}}">
+              <view>经验要求</view>
+              <view>{{workExperience}}</view>
+            </picker>
+          </view>
+          <view class="weui-flex__item">
+            <picker bindchange="educationPickerChange" value="{{educationIndex}}" range="{{educationArray}}">
+              <view>最低学历</view>
+              <view>{{educationLevel}}</view>
+            </picker>
+
+          </view>
+          <view class="weui-flex__item">
+            <picker bindchange="salaryPickerChange" value="{{salaryRange}}" range="{{salaryArray}}">
+              <view>薪资范围</view>
+              <view>{{salaryRange}}</view>
+            </picker>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+<!-- 
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell ">
+        职位描述
+      </view>
+      <view class="weui-cell ">
+        <input class="weui-input post-content" placeholder="请填写职位描述" bindtap="addDesc" disabled="true" value="{{jobInfo.jobDescription}}"/>
+        <view class="arrow-right"></view>
+      </view>
+    </view> -->
+
+
+    <view class="weui-cells weui-cells_after-title textarea-weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="工作描述" maxlength="1000" value="{{jobDescription}}" style="min-height: 3.3em" bindinput="operateTextarea" />
+              <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+          </view>
+        </view>
+      </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell ">
+        工作地点
+      </view>
+      <view class="weui-cell ">
+        <input class="weui-input post-content" placeholder="请填写工作地点" value="{{address}}" data-event="input" bindinput="addAddress" />
+        <image src="/images/ico-addr.png" style="width:50rpx;height:50rpx;" bindtap="getLocation"></image>
+        <view class="arrow-right" ></view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell ">
+        从业资格
+      </view>
+      <view class="weui-cell ">
+        <input class="weui-input post-content" placeholder="请选择所需证书" bindtap="addCertificate" />
+        <view class="arrow-right">
+        </view>
+      </view>
+        <view class="weui-cell skill-box">
+        <view class="skill" wx:for="{{certificateList}}" wx:key="{{index}}">{{item}} <icon class="icon" type="clear" size="15" data-index="{{index}}" catchtap="delSkill" /></view>
+        <!-- <view class="btn-add" catchtap="showModal">+ 添加</view> -->
+      </view>
+    </view>
+
+    <view class="weui-flex post-sub-btn">
+      <view class="weui-flex__item ">
+        <button class="weui-btn post_add_btn" bindtap="editJobInfo" type="primary">保存</button>
+      </view>
+      <view class="weui-flex__item ">
+        <button class="weui-btn post_add_btn" type="primary" >发布</button>
+      </view>
+    </view>
+
+
+
+
+  </view>
+</view>

@@ -1,0 +1,65 @@
+.first-line{
+  margin-top: 20px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-top:1px solid 	#808080;
+}
+.select-wrap {
+  width: 150rpx;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 40rpx;
+  background-color: 	#d9d9d9;
+  border:1px none;
+  border-radius:5px;
+ 
+}
+
+.unread-title{
+width: 150rpx;
+height: 40px;
+line-height: 40px;
+color: 	#F5F5F5;
+margin: 0 auto;
+text-align: center;
+background-color: #d9d9d9;
+border:1px none;
+border-radius:5px;
+}
+
+.position-category{
+  height: 40px;
+  line-height: 40px;
+
+}
+
+.weui-cells::before{
+  border-top: 0;
+}
+
+.message-time{
+  font-size: 10px;
+  
+}
+.message-title{
+font-size: 15px;
+}
+.message-content{
+font-size: 10px;
+}
+
+.one-line{
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content:space-between;
+
+
+}
+.sys_message_title{
+font-size: 15px;
+font-weight:bold;
+}
+.sys_message_content{
+font-size: 10px;
+}

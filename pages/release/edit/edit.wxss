@@ -1,0 +1,120 @@
+/* pages/test/test.wxss */
+.container {
+  background-color: #fff;
+  min-height: 100%;
+  display: block;
+}
+.main {
+  width: 100%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+}
+.desc{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+
+
+
+}
+.salary{
+display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+justify-content:space-between;
+
+}
+/* .item3{
+font-size: 13px;color: #888888;
+
+}
+.item4{
+font-size: 13px;color: #888888;
+} */
+.title{
+text-decoration:none;
+}
+.item1{
+align-self:flex-start;
+
+}
+.weui-cells::before{
+  border: 0;
+}
+.weui-cells::after{
+  border: 0;
+}
+.basic{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  justify-content:space-between;
+  font-size: 30rpx;
+  border: 0;
+}
+.basic::before{
+  border: 0;
+}
+.basic::after{
+  border: 0;
+}
+.icon{
+ width: 50rpx;
+ height: 50rpx; 
+ display: block;
+ 
+
+}
+.education::before{
+  border: 0;
+}
+.certificate{
+display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  justify-content:flex-start;
+  font-size: 30rpx;
+  border: 0;
+
+}
+.status::before{
+  background: #118314;
+  color: #fff;
+}
+.position-desc{
+display: flex;
+flex-direction:column;
+flex-wrap:nowrap;
+justify-content:flex-start;
+font-size: 30rpx;
+min-height: 100rpx;
+
+}
+.map{
+  width: 50rpx;
+  height: 50rpx;
+}
+.location{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content: space-between;
+}
+.job-name{
+  text-align: center;
+}
+.salary{
+  text-align: right;
+}
+.area{
+width: 200rpx;
+}
+.education-level{
+width: 50rpx;
+}
+

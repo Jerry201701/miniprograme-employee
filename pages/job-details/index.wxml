@@ -1,0 +1,190 @@
+<view class="container">
+  <view class="page">
+    <view class="page__bd ">
+
+
+
+      <view class="weui-cells weui-cells_after-title ">
+        <view class="weui-cell weui-cell_example ">
+          <view class="weui-cell__hd ">
+            <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd title">{{jobName}}</view>
+          <view class="weui-cell__ft">{{salaryRange}}</view>
+        </view>
+      </view>
+      <!--地域，学历与工作经验-->
+      <view class="weui-cells weui-cells_after-title basic">
+        <view class="weui-cell">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src='/images/location.png' class="icon" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{city}}，{{district}}</view>
+          </view>
+        </view>
+        <view class="weui-cell education">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src='/images/education.png' class="icon" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{educationLevel}}</view>
+          </view>
+        </view>
+        <view class="weui-cell education">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src='/images/experience.png' class="icon" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{workExperience}}</view>
+          </view>
+        </view>
+      </view>
+      <!--证书与状态-->
+
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="weui-cell education">
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+              <image src='/images/experience.png' class="icon" />
+            </view>
+            <view class="weui-cell__bd certificate">
+              {{certificates}}
+              <!-- <view>厨师证，</view>
+              <view>糕点证，</view>
+              <view>西餐证</view> -->
+            </view>
+          </view>
+        </view>
+        <view>
+          <button wx:if="{{deliveryStatus===1}}" class="weui-btn status" type="primary">已投递</button>
+          <button wx:elif="{{deliveryStatus===2}}" class="weui-btn status" type="primary">不合适</button>
+          <button wx:elif="{{deliveryStatus===3}}" class="weui-btn status" type="primary">邀请面试</button>
+          <button wx:elif="{{deliveryStatus===4}}" class="weui-btn status" type="primary">已录用</button>
+          <button wx:elif="{{deliveryStatus===5}}" class="weui-btn status" type="primary">等待结果</button>
+          <button wx:else class="weui-btn status" type="primary">未投递</button>
+
+
+        </view>
+      </view>
+      <!--职位详情-->
+      <h1>职位详情</h1>
+      <view class="position-desc">
+        {{jobDescription}}
+        <!-- <view>
+          <h3>岗位职责</h3>
+          <view class="position-desc">
+            <view>经验要求：5年以上</view>
+            <view>1，炒菜</view>
+            <view>2，下面</view>
+            <view>3，烧汤</view>
+            <view>4，蒸饭</view>
+          </view>
+        </view>
+        <view>
+          <h3>任职要求</h3>
+          <view class="position-desc">
+            <view>1，菜洗得干净</view>
+            <view>2，菜炒的香</view>
+          </view>
+        </view> -->
+
+
+
+
+      </view>
+      <!--公司简介-->
+      <view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{companyName}}</view>
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{companyLogo}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <!-- <view class="weui-media-box__title">{{companyName}}</view> -->
+              <view class="weui-media-box__desc">{{description}}</view>
+              <view>{{brand}} {{minStaff}}-{{maxStaff}}人</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <!--工作地点-->
+      <view class="weui-media-box__title weui-media-box__title_in-text">工作地点</view>
+      <view class="weui-media-box__desc location" bindtap='goMap'>
+        <view>
+          {{address}}
+        </view>
+        <view>
+          <image src="/images/map.png" class="map"></image>
+        </view>
+      </view>
+      <view class='space'></view>
+      <!--地图定位-->
+
+
+
+
+
+      <!--编辑按钮-->
+      <view class="edit">
+      <view>
+      <image src="/images/job/share.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;float:left;"></image>
+        <button open-type="share" type="default" style="float:left;">
+          分享
+        </button>
+      </view>
+      <view wx:if="{{applicantId>0}}" class="chat">
+        <button class="weui-btn delivery-btn chat" type="primary" bindtap="chatWithEmployer">沟通一下</button>
+      </view>
+      <view class="delivery">
+        <button class="weui-btn delivery-btn delivery-resume" type="primary" bindtap="openConfirm">投递简历</button>
+      </view>
+
+      </view>
+
+      <!-- 
+      <view class="weui-cells weui-cells_after-title delivery">
+            <view class="weui-cell weui-cell_example ">
+                <view class="weui-cell__hd">
+                    <image src="/images/job/share.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                    <button open-type="share"  type="primary" >
+                    分享
+                    </button>
+                 <button class="weui-btn delivery-btn chat" type="primary" bindtap="chatWithEmployer" >沟通一下</button>
+                 <button class="weui-btn delivery-btn delivery-resume" type="primary" bindtap="openConfirm" >投递简历</button>
+             
+            </view>
+            
+        </view>
+ -->
+
+
+
+      <!-- <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view>
+            <button class="weui-btn " type="primary" disabled="true">分享</button>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+          <view>
+            <button class="weui-btn " type="primary">投递简历</button>
+          </view>
+        </view>
+      </view> -->
+
+
+
+
+
+      <!--end-->
+    </view>
+  </view>
+</view>
+
+<!-- 登录弹框  -->
+<applicant-login id="applicantLogin" bind:comeBack="comeBack"></applicant-login>
+<!--错误提示--->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>

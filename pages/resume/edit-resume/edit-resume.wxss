@@ -1,0 +1,28 @@
+@import '/style/editResume.wxss';
+@import '/template/toast/toast.wxss';
+
+.weui-label::before{
+  display: none;
+}
+.basic-title{
+  text-align: center;
+  margin-bottom: 10rpx;
+  font-size: 50rpx;
+}
+
+.head-pic{
+position: relative;
+overflow: visible;
+height: 200rpx;
+width: 200rpx;
+
+}
+.head-pic .icon{
+  position: absolute;
+  top:-7.5px;
+  right:-7.5px;
+  width:15px;
+  height: 15px;
+  background-color:#fff;
+  border-radius:50%;
+}

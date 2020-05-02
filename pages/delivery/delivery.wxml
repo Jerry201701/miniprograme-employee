@@ -1,0 +1,174 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="nav">
+      <view class="nav-son" data-nav="1" data-num="" bindtap='bindShowMsg'>
+        <view class="content">{{tihuoWay}}</view>
+        <view class="icon"></view>
+      </view>
+    </view>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+      <view class="select_one" bindtap="mySelect" data-name="全部">全部</view>
+      <view class="select_one" bindtap="mySelect" data-name="发布中">发布中</view>
+      <view class="select_one" bindtap="mySelect" data-name="审核中">审核中</view>
+      <view class="select_one" bindtap="mySelect" data-name="已招聘">已招聘</view>
+    </view>
+
+
+
+     <view class="weui-cells weui-cells_checkbox weui-cells_after-title">
+            <checkbox-group bindchange="checkboxChange">
+                <label class="weui-cell weui-check__label" wx:for="{{resumeList}}" wx:key="value">
+                    <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}"/>
+                    
+      <view class="weui-cell__bd" bindtap="toSingleResume" data-id="{{item.id}}" data-open="{{item.openId}}">
+        <view class="delivery-conditions">
+
+
+
+          <view class="right-pic">
+
+
+
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+              <image src="http://www.scsflr.com/images/job/1.jpg" style="width: 50px; height: 50px; display: block" />
+            </view>
+
+
+
+            <view class="name-other">
+              <view>{{item.applicantName}} {{item.workYears}}年 {{item.educationLevel}}</view>
+              <view class="certificate">{{item.certificateList}}</view>
+            </view>
+
+
+
+          </view>
+       
+          <view class="delivery-time">
+            <view>
+              {{item.deliveryTime}}
+            </view>
+
+
+            <view class="weui-cell__hd weui-check__hd_in-checkbox " wx:if="{{batch}}" bindtap="selectResume" data-selected="{{item.select}}">
+              <icon class="weui-icon-checkbox_circle checkbox" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+              <icon class="weui-icon-checkbox_success checkbox" type="success" size="23" wx:if="{{item.checked}}"></icon>
+            </view>
+
+
+          </view>
+
+
+        </view>
+       
+        <view class="introduce">{{item.introduce}}</view>
+      </view>
+
+
+
+<!-- 
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                    </view> -->
+                </label>
+            </checkbox-group>
+        </view>
+   
+
+
+
+<!-- 
+    <view class="weui-cells weui-cells_checkbox weui-cells_after-title" wx:for="{{resumeList}}" wx:key="value">
+     
+     
+     
+     
+      <view class="weui-cell__bd" bindtap="toSingleResume" data-id="{{item.id}}" data-open="{{item.openId}}">
+        <view class="delivery-conditions">
+
+
+
+          <view class="right-pic">
+
+
+
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+              <image src="http://www.scsflr.com/images/job/1.jpg" style="width: 50px; height: 50px; display: block" />
+            </view>
+
+
+
+            <view class="name-other">
+              <view>{{item.applicantName}} {{item.workYears}}年 {{item.educationLevel}}</view>
+              <view class="certificate">{{item.certificateList}}</view>
+            </view>
+
+
+
+          </view>
+       
+          <view class="delivery-time">
+            <view>
+              {{item.deliveryTime}}
+            </view>
+
+
+            <view class="weui-cell__hd weui-check__hd_in-checkbox " wx:if="{{batch}}" bindtap="selectResume" data-selected="{{item.select}}">
+              <icon class="weui-icon-checkbox_circle checkbox" type="circle" size="23" wx:if="{{!item.select}}"></icon>
+              <icon class="weui-icon-checkbox_success checkbox" type="success" size="23" wx:if="{{item.select}}"></icon>
+            </view>
+
+
+          </view>
+
+
+        </view>
+       
+        <view class="introduce">{{item.introduce}}</view>
+      </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </view>
+     
+
+
+
+ -->
+
+
+
+
+
+
+
+
+    <button type="primary" wx:if="{{!batch}}" bindtap="batchManagement">批量管理</button>
+     <view class="weui-flex" wx:if="{{batch}}" >
+            <view class="weui-flex__item">
+             <button class="weui-btn" type="primary" bindtap="inviteSubmit">批量邀请面试</button>
+            
+            </view>
+            <view class="weui-flex__item">
+              <button class="weui-btn" type="default" bindtap="refuseSubmit">批量拒绝</button>
+            </view>
+        </view>
+
+
+  </view>
+</view>

@@ -1,0 +1,96 @@
+.container {
+  background-color: #fff;
+  height: 1100rpx;
+  display: block;
+
+}
+.fist_img{
+  margin-bottom: 200rpx;
+  height: 500rpx;
+  text-align: center;
+}
+.begin_login{
+  margin: 0 auto;
+  width: 600rpx;
+  text-align: center;
+  border: 5rpx solid #a7b8c8;  
+  border-radius: 20rpx;
+}
+.weui-demo-dialog{
+  visibility:hidden;
+  opacity:0;
+  transition:opacity .3s;
+}
+.weui-demo-dialog_show{
+  width: 400rpx;
+  height: 340rpx;
+  background: #f2f4f5;
+  position: absolute;
+  top: 260rpx;
+  left: 200rpx;
+  visibility:visible;
+  opacity:1;
+  z-index:100;
+  box-shadow: -20rpx 0 20rpx #888888,20rpx 0 20rpx #888888;
+}
+.dialog-display{
+  visibility:hidden;
+}
+.cancel-img{
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+}
+.notice{
+  display: flex;
+  flex-direction: column;
+  
+  
+
+
+
+}
+.item{
+  margin-top: 10rpx;
+  text-align: center;
+}
+.notice_msg{
+ margin-top: 10rpx;
+  text-align: center;
+}
+.notice_wei{
+  margin: 0 auto;
+  margin-top: 10rpx;
+  text-align: center;
+  border: 5rpx solid #888888;
+  border-radius: 20rpx;
+  width: 300rpx;
+  background: #5ed33c;
+}
+.notice_ph{
+  margin: 0 auto;
+ margin-top: 40rpx;
+  text-align: center;
+  border: 5rpx solid #888888;
+  border-radius: 20rpx;
+  width: 300rpx;
+  background: #5ed33c;
+}
+.load_wei{
+  height: 50rpx;
+  width: 300rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+
+}
+.load_phone{
+  width: 300rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+
+}
+
+.ground{
+  background: #a7b8c8;
+}

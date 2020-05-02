@@ -1,0 +1,139 @@
+<view class="container">
+  <view class="page ">
+    <view class="page__bd">
+      <!--标题和头像-->
+      <view class="weui-cells weui-cells_after-title ">
+        <view class="resume_brief">
+          <view class="resume_title">
+            <view class="emp_name">{{applicantName}}</view>
+            <view>{{expectPosition}}/{{age}}/{{workYears}}</view>
+          </view>
+          <view>
+            <image src="/images/emp.jpg" class="portrait"></image>
+          </view>
+        </view>
+      </view>
+      <!--电话和邮箱-->
+      <view class="weui-cells weui-cells_after-title applicant-contact">
+        <view class="weui-cell weui-cell_input link">
+          <!-- <input class="weui-input" value="{{email}}"/> -->
+          <view class="weui-cell__hd">
+            <image src="/images/job/phone.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view>
+              {{telephone}}
+            </view>
+            <!-- <input class="weui-input" value="13612345678(电话)"></input> -->
+          </view>
+          <!-- <view class="job_edit_btn">{{descEditStatus}}</view> -->
+        </view>
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd">
+            <image src="/images/job/email.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view>
+              {{email}}
+            </view>
+            <!-- <input class="weui-input" value="haoyoulai@xx.com(邮箱)"></input> -->
+          </view>
+        </view>
+      </view>
+
+      <!--自我描述-->
+          <view class="edit-work-title">自我描述</view>
+      <view class="weui-cells weui-cells_after-title self-desc">
+        <view class="weui-cell weui-cell_input job_experience_title">
+          <!-- <view bindtap="selfDescEdit" class="job_edit_btn">{{descEditStatus}}</view> -->
+        </view>
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="工作描述" maxlength="1000" value="{{introduce}}" style="height: 3.3em" bindinput="operateTextarea" disabled='{{isEditeDesc}}' />
+            <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+          </view>
+        </view>
+      </view>
+    
+
+      <!--展示和编辑工作经历-->
+      <view class="edit-work-title">工作经历</view>
+      <view class="work-history" wx:for-items="{{workExperienceList}}" wx:key="key">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell history-list">
+            <view class="work-begin">{{item.beginTime}}</view>
+            <view class="work-end">{{item.endTime}}</view>
+            <view class="work-company">{{item.companyName}}</view>
+            <view class="post-name">{{item.jobName}}</view>
+          </view>
+          <view class="weui-cell">
+            {{item.responsibility}}
+          </view>
+         
+        </view>
+      </view>
+
+      <!--展示和编辑教育经历-->
+      <view class="edit-work-title">教育经历</view>
+      <view class="work-history" wx:for-items="{{educationExperienceList}}" wx:key="education">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell history-list">
+            <view class="work-begin">{{item.beginTime}}</view>
+            <view class="work-end">{{item.endTime}}</view>
+            <view class="work-company">{{item.schoolName}}</view>
+            <view class="post-name">{{item.majorName}}</view>
+          </view>
+          <view class="weui-cell">
+            {{item.educationDesc}}
+          </view>
+         
+        </view>
+      </view>
+
+    
+      <!--编辑和添加证书-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input job_experience_title">
+          <view class="edit-work-title">拥有证书</view>
+          <view bindtap="jobSkillEdit" class="job_edit_btn">{{skillEditStatus}}</view>
+        </view>
+        <view class="weui-cell skill-box">
+          <view class="skill" wx:for="{{certificateList}}" wx:key="{{index}}">{{item}}
+            <icon class="icon" wx:if="{{delCertificate}}" type="clear" size="15" data-index="{{index}}" catchtap="delSkill" />
+          </view>
+          <!-- <view class="btn-add" catchtap="showModal">+ 添加</view> -->
+        </view>
+       
+        
+
+      </view>
+
+
+<view class="weui-flex">
+            <view class="weui-flex__item">
+             <button class="weui-btn " bindtap="interview" data-result="true" type="primary">邀请面试</button>
+            
+            </view>
+            <view class="weui-flex__item">
+            
+             <button class="weui-btn" bindtap="interview" data-result="false" type="default">不合适</button>
+            
+            </view>
+        </view>
+
+
+
+
+
+
+
+    </view>
+
+
+
+
+
+
+
+  </view>
+</view>
